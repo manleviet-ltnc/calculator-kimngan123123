@@ -76,7 +76,7 @@ namespace Calculator1
             switch (pheptoan)
             {
                 case PhepToan.Cong: ketqua = nho + tam; break;
-                case PhepToan.Tru: ketqua = nho + tam; break;
+                case PhepToan.Tru: ketqua = nho - tam; break;
                 case PhepToan.Nhan: ketqua = nho * tam; break;
                 case PhepToan.Chia: ketqua = nho / tam; break;
             }
@@ -120,6 +120,18 @@ namespace Calculator1
             lblDisplay.Text = "0";
             nho = 0;
             lblDisplay.Text = "";
+        }
+
+        private void btnCan_Click(object sender, EventArgs e)
+        {
+            double v;
+            v = double.Parse(lblDisplay.Text);
+            lblDisplay.Text = Math.Sqrt(v).ToString();
+        }
+
+        private void btnThapPhan_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text += btnThapPhan.Text;
         }
     }
 }
