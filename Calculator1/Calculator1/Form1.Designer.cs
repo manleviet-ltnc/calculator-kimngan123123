@@ -278,6 +278,7 @@
             this.btnnho.TabIndex = 1;
             this.btnnho.Text = "C";
             this.btnnho.UseVisualStyleBackColor = true;
+            this.btnnho.Click += new System.EventHandler(this.btnnho_Click);
             // 
             // btnXoa
             // 
@@ -288,6 +289,7 @@
             this.btnXoa.TabIndex = 2;
             this.btnXoa.Text = "Backspace";
             this.btnXoa.UseVisualStyleBackColor = true;
+            this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
             // 
             // frmMain
             // 
