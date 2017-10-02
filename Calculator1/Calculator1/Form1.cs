@@ -34,6 +34,9 @@ namespace Calculator1
         {
             if (isTypingNumber)
             {
+
+                if (lblDisplay.Text == "0")
+                    lblDisplay.Text = "";
                 lblDisplay.Text = lblDisplay.Text + so;
             }
             else
@@ -85,12 +88,7 @@ namespace Calculator1
             // gan ket qua tinh duoc len lblDisplay
             lblDisplay.Text = ketqua.ToString();
         }
-
-        private void btnbang_Click(object sender, EventArgs e)
-        {
-            Tinhketqua();
-            isTypingNumber = false;
-        }
+        
 
         private void frmMain_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -108,23 +106,36 @@ namespace Calculator1
                 case '9':
                     Nhapso("" + e.KeyChar);
                     break;
-
+                    Nhapso("" + e.KeyChar);
+                    break;
+                case '+':
+                    btnCong.PerformClick();
+                    break;
+                case '-':
+                    btnTru.PerformClick();
+                    break;
+                case '*':
+                    btnNhan.PerformClick();
+                    break;
+                case '/':
+                    btnChia.PerformClick();
+                    break;
+                case '=':
+                    btnBang.PerformClick();
+                    break;
+                default:
+                    break;
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if (lblDisplay.Text != " ")
-                lblDisplay.Text = (lblDisplay.Text).Substring(0, lblDisplay.Text.Length - 1);
+            if (lblDisplay.Text.Length > 0)
+                lblDisplay.Text = lblDisplay.Text.Remove(lblDisplay.Text.Length - 1);
+            if (lblDisplay.Text == "")
+                lblDisplay.Text = "0.";
         }
-
-        private void btnnho_Click(object sender, EventArgs e)
-        {
-            lblDisplay.Text = "0";
-            nho = 0;
-            lblDisplay.Text = "";
-        }
-
+       
         private void btnCan_Click(object sender, EventArgs e)
         {
             double v;
@@ -132,10 +143,7 @@ namespace Calculator1
             lblDisplay.Text = Math.Sqrt(v).ToString();
         }
 
-        private void btnThapPhan_Click(object sender, EventArgs e)
-        {
-            lblDisplay.Text += btnThapPhan.Text;
-        }
+
 
         private void btnPhanTram_Click(object sender, EventArgs e)
         {
@@ -147,5 +155,18 @@ namespace Calculator1
             lblDisplay.Text = (-1 * (double.Parse(lblDisplay.Text))).ToString();
         }
 
+        private void btnThapPhan_Click_1(object sender, EventArgs e)
+        {
+            if (lblDisplay.Text.Contains("."))
+            {
+                if (lblDisplay.Text == "0.")
+                {
+                    lblDisplay.Text = "";
+                    Nhapso("0.");
+                }
+                return;
+            }
+            lblDisplay.Text = lblDisplay.Text + ".";
+        }
     }
 }
