@@ -84,6 +84,7 @@
             this.btnDoiDau.TabIndex = 17;
             this.btnDoiDau.Text = "+/-";
             this.btnDoiDau.UseVisualStyleBackColor = true;
+            this.btnDoiDau.Click += new System.EventHandler(this.btnDoiDau_Click);
             // 
             // btn1
             // 

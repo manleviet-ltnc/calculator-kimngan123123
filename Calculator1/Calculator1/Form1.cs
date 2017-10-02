@@ -33,7 +33,9 @@ namespace Calculator1
         private void Nhapso(string so)
         {
             if (isTypingNumber)
+            {
                 lblDisplay.Text = lblDisplay.Text + so;
+            }
             else
             {
                 lblDisplay.Text = so;
@@ -112,7 +114,8 @@ namespace Calculator1
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            lblDisplay.Text = "0";
+            if (lblDisplay.Text != " ")
+                lblDisplay.Text = (lblDisplay.Text).Substring(0, lblDisplay.Text.Length - 1);
         }
 
         private void btnnho_Click(object sender, EventArgs e)
@@ -133,5 +136,16 @@ namespace Calculator1
         {
             lblDisplay.Text += btnThapPhan.Text;
         }
+
+        private void btnPhanTram_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = ((double.Parse(lblDisplay.Text) / 100)).ToString();
+        }
+
+        private void btnDoiDau_Click(object sender, EventArgs e)
+        {
+            lblDisplay.Text = (-1 * (double.Parse(lblDisplay.Text))).ToString();
+        }
+
     }
 }
